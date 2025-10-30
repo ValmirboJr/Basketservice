@@ -1,4 +1,7 @@
 package org.example.basketservice.exceptions;
 
-public class BussinesException {
+public class BussinesException extends RuntimeException {
+    public BussinesException(String message) {
+        super(message);
+    }
 }
