@@ -1,6 +1,8 @@
 package org.example.basketservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
+import org.example.basketservice.enums.PaymentMethod;
 import org.example.basketservice.enums.Status;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -26,6 +28,9 @@ public class Basket {
     private List<Product> products;
 
     private Status status;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private PaymentMethod paymentMethod;
 
     public void calculateTotalPrice(){
         this.totalprice = products.stream()
